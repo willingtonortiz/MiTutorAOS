@@ -1,0 +1,7 @@
+package com.mitutor.service;
+
+import com.mitutor.entities.Subject;
+
+public interface ISubjectService extends CrudService<Subject> {
+
+}
