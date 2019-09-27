@@ -7,34 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mitutor.entities.Student;
-import com.mitutor.repository.IStudentRepository;
-import com.mitutor.service.IStudentService;
+import com.mitutor.entities.Role;
+import com.mitutor.repository.IRoleRepository;
+import com.mitutor.service.IRoleService;
 
 @Service
-public class StudentServiceImpl implements IStudentService {
+public class RoleServiceImpl implements IRoleService {
 
 	@Autowired
-	private IStudentRepository studentRepository;
+	private IRoleRepository roleRepository;
 
 	@Transactional(readOnly = true)
 	@Override
-	public Optional<Student> findById(Integer id) throws Exception {
-
+	public Optional<Role> findById(Integer id) throws Exception {
 		return null;
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<Student> findAll() throws Exception {
-
+	public List<Role> findAll() throws Exception {
 		return null;
 	}
 
 	@Transactional()
 	@Override
-	public Student save(Student t) throws Exception {
-
+	public Role save(Role t) throws Exception {
 		return null;
 	}
 
