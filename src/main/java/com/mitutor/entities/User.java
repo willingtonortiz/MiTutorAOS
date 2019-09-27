@@ -1,20 +1,21 @@
 package com.mitutor.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"users\"")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -32,16 +33,17 @@ public class User implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "active")
-	private int active;
+	@Column(name = "enabled")
+	private boolean enabled;
 
 	@OneToOne
 	@JoinColumn(name = "id")
 	@MapsId
 	private Person person;
 
-	@ManyToMany(mappedBy = "users")
-	private List<Role> roles = new ArrayList<Role>();
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "authorities_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
+	private Set<Authority> authority;
 
 	public Integer getId() {
 		return id;
@@ -83,20 +85,20 @@ public class User implements Serializable {
 		this.person = person;
 	}
 
-	public int getActive() {
-		return active;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setActive(int active) {
-		this.active = active;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
+	public Set<Authority> getAuthority() {
+		return authority;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setAuthority(Set<Authority> authority) {
+		this.authority = authority;
 	}
 
 }
