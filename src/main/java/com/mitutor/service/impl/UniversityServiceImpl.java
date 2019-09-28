@@ -20,12 +20,14 @@ public class UniversityServiceImpl implements IUniversityService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<University> findById(Integer id) throws Exception {
+
 		return universityRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<University> findAll() throws Exception {
+
 		return universityRepository.findAll();
 	}
 

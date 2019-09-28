@@ -44,6 +44,7 @@
 
 				<div class="col-12 forgot">
 					<a href="#">Recordar contrasena?</a>
+					<a th:href="@{'/account/register'}">Registrarme</a>
 				</div>
 				<div th:if="${param.error}" class="alert alert-danger" role="alert">
 					Invalid username and password.</div>

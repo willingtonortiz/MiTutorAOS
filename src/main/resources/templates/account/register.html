@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+
+<meta charset="utf-8" />
+<title>Mi Tutor</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="title" content="MiTutor" />
+<meta name="description" content="App web para estudiantes" />
+<meta name="author" content="DevFriends" />
+<link rel="stylesheet" th:href="@{/css/site.css}" />
+<link rel="stylesheet" th:href="@{/css/Landing.css}" />
+
+
+</head>
+<body>
+
+	<form th:action="@{/account/register}" method="POST" modelAttribute="userMaster">
+		<input type="text" name="lastname" placeholder="lastname">
+		<input type="text" name="name" placeholder="name">
+		<input type="text" name="semester" placeholder="semester">
+		<select name="university_id">
+		<div th:each="university:${listadoUniversidad}">
+			<option th:value="${university.id}" th:text="${university.name}"></option>
+			
+		</div>
+		</select>
+	
+		<input type="text" name="email" placeholder="email">
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" value="Registrar"/>
+	</form>
+</body>
+</html>
