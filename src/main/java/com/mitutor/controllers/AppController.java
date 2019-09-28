@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/app")
 public class AppController {
 
-	@GetMapping({ "/", "/login" })
+	@GetMapping("/login")
 	public String index() {
 		return "index";
 	}
