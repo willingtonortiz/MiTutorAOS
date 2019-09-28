@@ -33,7 +33,7 @@ public class PersonServiceImpl implements IPersonService {
 	@Override
 	public Person save(Person t) throws Exception {
 
-		return null;
+		return personRepository.save(t);
 	}
 
 	@Transactional()

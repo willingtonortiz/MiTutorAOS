@@ -34,7 +34,7 @@ public class UserServiceImpl implements IUserService {
 	@Transactional()
 	@Override
 	public User save(User user) throws Exception {
-		return null;
+		return userRepository.save(user);
 	}
 
 	@Transactional()
