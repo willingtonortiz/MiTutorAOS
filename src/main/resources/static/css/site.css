@@ -1,0 +1,40 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
+:root{
+  --primary-color:#4E83ED;
+  --primary-text: #242424;
+  --gradient-left: #4959EC;
+  --gradient-right: #52A4EC;
+  --main-background: #fafbfc;
+  --white: #ffffff;
+  --green: #2FE49A;
+  --white-noise : rgb(238, 238, 238);
+  --yellow: #FFD256;
+}
+
+
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+  outline: none;
+  text-decoration: none;
+}
+
+
+::placeholder{
+  color: #afafaf;
+}
+
+
+button:active{
+  transition: all .2s ease-in-out;
+  transform: scale(.96)
+}
+body{
+  background: var(--main-background);
+}
