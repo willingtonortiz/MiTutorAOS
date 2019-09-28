@@ -40,8 +40,8 @@ public class Subject implements Serializable {
 	@OneToMany(mappedBy = "subject")
 	private List<TutoringOffer> tutoringOffers = new ArrayList<>();
 
-	@OneToOne(mappedBy = "subject")
-	private TutoringSession tutoringSession;
+	@OneToMany(mappedBy = "subject")
+	private List<TutoringOffer> tutoringSessions = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
@@ -91,12 +91,15 @@ public class Subject implements Serializable {
 		this.tutoringOffers = tutoringOffers;
 	}
 
-//	public TutoringSession getTutoringSessions() {
-//		return tutoringSessions;
-//	}
-//
-//	public void setTutoringSessions(TutoringSession tutoringSessions) {
-//		this.tutoringSessions = tutoringSessions;
-//	}
+	public List<TutoringOffer> getTutoringSessions() {
+		return tutoringSessions;
+	}
+
+	public void setTutoringSessions(List<TutoringOffer> tutoringSessions) {
+		this.tutoringSessions = tutoringSessions;
+	}
+
+	
+	
 
 }

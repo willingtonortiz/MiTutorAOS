@@ -21,7 +21,7 @@ public class TopicServiceImpl implements ITopicService {
 	@Override
 	public Optional<Topic> findById(Integer id) throws Exception {
 
-		return null;
+		return topicRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
@@ -31,17 +31,23 @@ public class TopicServiceImpl implements ITopicService {
 		return null;
 	}
 
+
 	@Transactional()
 	@Override
 	public Topic save(Topic t) throws Exception {
 
-		return null;
+		return topicRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
 
+	}
+
+	@Override
+	public List<Topic> findBySubject(Integer subjectId) throws Exception {
+		return topicRepository.findBySubject(subjectId);
 	}
 
 }

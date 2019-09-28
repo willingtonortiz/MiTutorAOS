@@ -21,14 +21,14 @@ public class SubjectServiceImpl implements ISubjectService {
 	@Override
 	public Optional<Subject> findById(Integer id) throws Exception {
 
-		return null;
+		return subjectRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Subject> findAll() throws Exception {
 
-		return null;
+		return subjectRepository.findAll();
 	}
 
 	@Transactional()

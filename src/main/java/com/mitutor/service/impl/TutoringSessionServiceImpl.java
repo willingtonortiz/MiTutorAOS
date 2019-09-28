@@ -21,7 +21,7 @@ public class TutoringSessionServiceImpl implements ITutoringSessionService {
 	@Override
 	public Optional<TutoringSession> findById(Integer id) throws Exception {
 
-		return null;
+		return tutoringSessionRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
@@ -35,7 +35,7 @@ public class TutoringSessionServiceImpl implements ITutoringSessionService {
 	@Override
 	public TutoringSession save(TutoringSession t) throws Exception {
 
-		return null;
+		return tutoringSessionRepository.save(t);
 	}
 
 	@Transactional()
