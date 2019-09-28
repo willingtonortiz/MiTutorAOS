@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:fragment="head">
+<head>
 
 <meta charset="utf-8" />
 <title>Mi Tutor</title>
@@ -30,7 +30,7 @@
 			<div class="searchbar">
 				<form th:action="@{/person/searchTutoringsBySubject}">
 					<input type="text" placeholder="¿Buscas algún curso?"
-						name="subject" />
+						name="subjectName" />
 				</form>
 			</div>
 
@@ -95,34 +95,64 @@
 
 			<div class="tutorias-board-container">
 
-				<h2>Tutorías recomendadas</h2>
-				<div class="results-tutorias">
-					<!-- FALTA IMPLEMENTAR ESTE A -->
-					<a style="text-decoration: none" th:href="@{/}">
+				<div th:if="${!tutoringsFound}">
+					<h2>Tutorías recomendadas</h2>
+
+					<div class="results-tutorias">
+						<a style="text-decoration: none" th:href="@{/}">
+							<div class="card-tutoria">
+								<h3 class="title-tutoria">Calculo 2</h3>
+								<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
+							</div>
+						</a>
+
 						<div class="card-tutoria">
 							<h3 class="title-tutoria">Calculo 2</h3>
 							<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
 						</div>
-					</a>
 
-					<div class="card-tutoria">
-						<h3 class="title-tutoria">Calculo 2</h3>
-						<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
-					</div>
-
-					<div class="card-tutoria">
-						<h3 class="title-tutoria">Calculo 2</h3>
-						<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
-					</div>
-
-				</div>
-
-				<h2>Tutores recomendados</h2>
-				<div class="results-tutores">
-					<div class="card-tutores">
-						<h3 class="card-tutor-tutoria">Anthony Bravo Garcia</h3>
+						<div class="card-tutoria">
+							<h3 class="title-tutoria">Calculo 2</h3>
+							<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
+						</div>
 					</div>
 				</div>
+				<div th:if="${tutoringsFound}">
+					<h2>Tutorías Encontradas</h2>
+
+					<div class="results-tutorias">
+						<div th:each="tutoring:${tutorings}" class="card-tutoria">
+							<h3 th:text="${tutoring.subject.name}" class="title-tutoria"></h3>
+							<p th:text="${tutoring.tutor.person.name}" class="tutor-tutoria"></p>
+						</div>
+					</div>
+				</div>
+				<!-- <a style="text-decoration: none" th:href="@{/}">
+							<div class="card-tutoria">
+								<h3 class="title-tutoria">Calculo 2</h3>
+								<p class="tutor-tutoria">Juan Carlos Sotomayor Reyes</p>
+							</div>
+						</a> -->
+
+				<div th:if="${!tutorsFound}">
+					<h2>Tutores recomendados</h2>
+
+					<div class="results-tutores">
+						<div class="card-tutores">
+							<h3 class="card-tutor-tutoria">Anthony Bravo Garcia</h3>
+						</div>
+					</div>
+				</div>
+				<div th:if="${tutorsFound}">
+					<h2>Tutores Encontrados</h2>
+
+					<div class="results-tutores">
+						<div th:each="tutor:${tutors}" class="card-tutores">
+							<h3 th:text="${tutor.person.name}" class="card-tutor-tutoria"></h3>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

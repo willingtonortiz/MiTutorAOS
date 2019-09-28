@@ -20,28 +20,36 @@ public class TutoringSessionServiceImpl implements ITutoringSessionService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<TutoringSession> findById(Integer id) throws Exception {
-
-		return null;
+		return tutoringSessionRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<TutoringSession> findAll() throws Exception {
-
-		return null;
+		return tutoringSessionRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public TutoringSession save(TutoringSession t) throws Exception {
-
-		return null;
+		return tutoringSessionRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		tutoringSessionRepository.deleteById(id);
+	}
 
+	@Transactional()
+	@Override
+	public void deleteAll() throws Exception {
+		tutoringSessionRepository.deleteAll();
+	}
+
+	@Override
+	public List<TutoringSession> findBySubjectName(String subjectName) {
+		return tutoringSessionRepository.findBySubjectName(subjectName);
 	}
 
 }

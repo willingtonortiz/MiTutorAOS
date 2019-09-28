@@ -7,38 +7,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mitutor.entities.Availability;
+import com.mitutor.entities.AvailabilityDay;
 import com.mitutor.repository.IAvailabilityDayRepository;
-import com.mitutor.service.IAvailabilityService;
+import com.mitutor.service.IAvailabilityDayService;
 
 @Service
-public class AvailabilityDayServiceImpl implements IAvailabilityService {
+public class AvailabilityDayServiceImpl implements IAvailabilityDayService {
 
 	@Autowired
 	private IAvailabilityDayRepository availabilityDayRepository;
 
 	@Transactional(readOnly = true)
 	@Override
-	public Optional<Availability> findById(Integer id) throws Exception {
-		return null;
+	public Optional<AvailabilityDay> findById(Integer id) throws Exception {
+		return availabilityDayRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<Availability> findAll() throws Exception {
-		return null;
+	public List<AvailabilityDay> findAll() throws Exception {
+		return availabilityDayRepository.findAll();
 	}
 
 	@Transactional
 	@Override
-	public Availability save(Availability t) throws Exception {
-		return null;
+	public AvailabilityDay save(AvailabilityDay t) throws Exception {
+		return availabilityDayRepository.save(t);
 	}
 
 	@Transactional
 	@Override
 	public void deleteById(Integer id) throws Exception {
-
+		availabilityDayRepository.deleteById(id);
 	}
 
 }

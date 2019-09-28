@@ -20,28 +20,25 @@ public class TutoringOfferServiceImpl implements ITutoringOfferService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<TutoringOffer> findById(Integer id) throws Exception {
-
-		return null;
+		return tutoringOfferRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<TutoringOffer> findAll() throws Exception {
-
-		return null;
+		return tutoringOfferRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public TutoringOffer save(TutoringOffer t) throws Exception {
-
-		return null;
+		return tutoringOfferRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
-
+		tutoringOfferRepository.deleteById(id);
 	}
 
 }

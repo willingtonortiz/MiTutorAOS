@@ -42,9 +42,16 @@ public class AuthorityServiceImpl implements IAuthorityService {
 
 	}
 
+	@Transactional()
 	@Override
 	public void deleteAll() {
 		authorityRepository.deleteAll();
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Optional<Authority> findByAuthority(String authority) throws Exception {
+		return authorityRepository.findByAuthority(authority);
 	}
 
 }

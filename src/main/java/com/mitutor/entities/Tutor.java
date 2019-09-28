@@ -38,7 +38,7 @@ public class Tutor implements Serializable {
 	@OneToMany(mappedBy = "tutor")
 	private List<TutoringSession> tutoringSessions = new ArrayList<>();
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "tutor_subject", joinColumns = @JoinColumn(name = "tutor_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
 	private List<Subject> subjects = new ArrayList<Subject>();
 
@@ -57,6 +57,10 @@ public class Tutor implements Serializable {
 	public Tutor(Integer points, String description) {
 		this.points = points;
 		this.description = description;
+	}
+
+	public void addSubject(Subject subject) {
+		this.subjects.add(subject);
 	}
 
 	public Integer getId() {

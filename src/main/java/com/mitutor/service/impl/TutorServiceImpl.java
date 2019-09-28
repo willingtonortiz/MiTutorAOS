@@ -43,8 +43,13 @@ public class TutorServiceImpl implements ITutorService {
 
 	@Transactional()
 	@Override
-	public void deleteAll() {
+	public void deleteAll() throws Exception {
 		tutorRepository.deleteAll();
+	}
+
+	@Override
+	public List<Tutor> findBySubjectName(String subjectName) throws Exception {
+		return tutorRepository.findBySubjectName(subjectName);
 	}
 
 }

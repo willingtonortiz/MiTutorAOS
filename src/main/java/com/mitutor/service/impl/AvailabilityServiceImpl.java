@@ -20,28 +20,25 @@ public class AvailabilityServiceImpl implements IAvailabilityService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Availability> findById(Integer id) throws Exception {
-
-		return null;
+		return availabilityRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Availability> findAll() throws Exception {
-
-		return null;
+		return availabilityRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public Availability save(Availability t) throws Exception {
-
-		return null;
+		return availabilityRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
-
+		availabilityRepository.deleteById(id);
 	}
 
 }

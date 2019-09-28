@@ -19,28 +19,25 @@ public class QualificationServiceImpl implements IQualificationService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Qualification> findById(Integer id) throws Exception {
-
-		return null;
+		return qualificationService.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Qualification> findAll() throws Exception {
-
-		return null;
+		return qualificationService.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public Qualification save(Qualification t) throws Exception {
-
-		return null;
+		return qualificationService.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
-
+		qualificationService.deleteById(id);
 	}
 
 }

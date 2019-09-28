@@ -1,36 +1,110 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+
+<head>
 
 <meta charset="utf-8" />
 <title>Mi Tutor</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="title" content="MiTutor" />
-<meta name="description" content="App web para estudiantes" />
-<meta name="author" content="DevFriends" />
+
 <link rel="stylesheet" th:href="@{/css/site.css}" />
+<link rel="stylesheet" th:href="@{/css/Login.css}" />
+<link rel="stylesheet" th:href="@{/css/Register.css}" />
+<link rel="stylesheet" th:href="@{/css/Home.css}" />
+<link rel="stylesheet" th:href="@{/css/DetailsTutoria.css}" />
+<link rel="stylesheet" th:href="@{/css/Profile.css}" />
+<link rel="stylesheet" th:href="@{/css/Nuevatutoria.css}" />
 <link rel="stylesheet" th:href="@{/css/Landing.css}" />
 
-
 </head>
+
 <body>
 
-	<form th:action="@{/account/register}" method="POST" modelAttribute="userMaster">
-		<input type="text" name="lastname" placeholder="lastname">
-		<input type="text" name="name" placeholder="name">
-		<input type="text" name="semester" placeholder="semester">
-		<select name="university_id">
-		<div th:each="university:${listadoUniversidad}">
-			<option th:value="${university.id}" th:text="${university.name}"></option>
-			
+	<div class="register-container">
+		<header>
+			<div class="logo">
+				<a th:href="@{/account/login}"> 
+				<img th:src="@{/assets/Logo.svg}" />
+				</a>
+			</div>
+
+			<div class="field-login">
+				<a th:href="@{/account/login}">
+					<button>Ingresar</button>
+				</a>
+			</div>
+		</header>
+
+		<div class="register-body">
+			<form th:action="@{/account/register}" method="post"
+				modelAttribute="userMaster" class="register-cont">
+				<h2>Registro</h2>
+
+				<div class="field">
+					<label>Nombres</label> 
+					<input name="name" placeholder="Ingrese sus nombres" />
+				</div>
+
+				<div class="field">
+					<label>Apellidos</label>
+					<input name="lastname" placeholder="Ingrese sus apellidos" />
+				</div>
+
+				<div class="field">
+					<label>Carrera</label> 
+					<input name="career" placeholder="Ingrese su carrera" />
+				</div>
+
+				<div class="field">
+					<label>Correo electrónico</label> 
+					<input name="email" placeholder="Ingrese sus email" />
+				</div>
+
+				<div class="field">
+					<label>Universidad</label>
+					<select name="universityId">
+						<div th:each="university:${listadoUniversidad}">
+							<option th:value="${university.id}" th:text="${university.name}"></option>
+						</div>
+					</select>
+				</div>
+
+				<div class="field">
+					<label>Semestre</label> 
+					<select name="semester">
+						<option value="1">Primer ciclo</option>
+						<option value="2">Segundo ciclo</option>
+						<option value="3">Tercer ciclo</option>
+						<option value="4">Cuarto ciclo</option>
+						<option value="5">Quinto ciclo</option>
+						<option value="6">Sexto ciclo</option>
+						<option value="7">Septimo ciclo</option>
+						<option value="8">Octavo ciclo</option>
+						<option value="9">Noveno ciclo</option>
+						<option value="10">Décimo ciclo</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label>Usuario</label> 
+					<input name="username" placeholder="Ingrese su nombre de usuario" />
+				</div>
+
+				<div class="field">
+					<label>Contraseña</label>
+					<input name="password" placeholder="Ingrese su contraseña" />
+				</div>
+
+				<div class="field">
+					<button>Registrarme</button>
+				</div>
+			</form>
+
 		</div>
-		</select>
-	
-		<input type="text" name="email" placeholder="email">
-		<input type="text" name="username" placeholder="username">
-		<input type="password" name="password" placeholder="password">
-		<input type="submit" value="Registrar"/>
-	</form>
+
+	</div>
+
+
 </body>
 </html>

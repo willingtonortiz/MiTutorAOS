@@ -39,6 +39,14 @@ public class Topic implements Serializable {
 	@ManyToMany(mappedBy = "topics")
 	private List<TutoringSession> tutoringSessions = new ArrayList<TutoringSession>();
 
+	public Topic() {
+
+	}
+
+	public Topic(String name) {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}

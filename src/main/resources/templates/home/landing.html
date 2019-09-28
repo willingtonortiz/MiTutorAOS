@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+
+<head>
 
 <meta charset="utf-8" />
 <title>Mi Tutor</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="title" content="MiTutor" />
-<meta name="description" content="App web para estudiantes" />
-<meta name="author" content="DevFriends" />
+
 <link rel="stylesheet" th:href="@{/css/site.css}" />
+<link rel="stylesheet" th:href="@{/css/Login.css}" />
+<link rel="stylesheet" th:href="@{/css/Register.css}" />
+<link rel="stylesheet" th:href="@{/css/Home.css}" />
+<link rel="stylesheet" th:href="@{/css/DetailsTutoria.css}" />
+<link rel="stylesheet" th:href="@{/css/Profile.css}" />
+<link rel="stylesheet" th:href="@{/css/Nuevatutoria.css}" />
 <link rel="stylesheet" th:href="@{/css/Landing.css}" />
 
-
 </head>
+
 <body>
 	<div class="landing-container">
 		<div class="home-selection section">
 			<div class="card-content">
 				<h2>¿Buscas alguna tutoría?</h2>
 				<p>Encuentra tutorías creadas por la comunidad universitaria</p>
-
-				<a th:href="@{'/login'}" class="btn btn-success">Ingresar</a>
-
-
+				<a th:href="@{/account/login}" class="btn btn-success">Ingresar</a>
 			</div>
 		</div>
 		<div class="porqueNosotros section">
@@ -85,7 +87,7 @@
 				</p>
 				<div class="list-members">
 					<div class="willy-container item">
-						<img src="/assets/WillyAvatar.png" alt="">
+						<img th:src="@{/assets/WillyAvatar.png}">
 						<div class="info">
 							<h2>Willington Ortiz Maurtua</h2>
 							<p>Backend Developer</p>
@@ -93,7 +95,7 @@
 					</div>
 					
 					<div class="jair-container item">
-						<img src="/assets/JairAvatar.png" alt="">
+						<img th:src="@{/assets/JairAvatar.png}">
 						<div class="info">
 							<h2>Jair Huaman Bellido</h2>
 							<p>Frontend Developer / UI Designer</p>
@@ -101,7 +103,7 @@
 					</div>
 					
 					<div class="jose-container item">
-						<img src="/assets/JoseAvatar.png" alt="">
+						<img th:src="@{/assets/JoseAvatar.png}">
 						<div class="info">
 							<h2>José Huaman Aparcana</h2>
 							<p>Backend Developer</p>

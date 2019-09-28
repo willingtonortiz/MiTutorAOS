@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,14 +35,22 @@ public class Subject implements Serializable {
 	@ManyToMany(mappedBy = "subjects")
 	private List<Student> students = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "subjects")
+	@ManyToMany(mappedBy = "subjects", cascade = CascadeType.ALL)
 	private List<Tutor> tutors = new ArrayList<>();
 
 	@OneToMany(mappedBy = "subject")
 	private List<TutoringOffer> tutoringOffers = new ArrayList<>();
 
-	@OneToOne(mappedBy = "subject")
-	private TutoringSession tutoringSession;
+	@OneToMany(mappedBy = "subject")
+	private List<TutoringOffer> tutoringSessions = new ArrayList<>();
+
+	public Subject() {
+
+	}
+
+	public Subject(String name) {
+		this.name = name;
+	}
 
 	public Integer getId() {
 		return id;

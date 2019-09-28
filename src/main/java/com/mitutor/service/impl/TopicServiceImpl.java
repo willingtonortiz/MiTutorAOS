@@ -20,28 +20,31 @@ public class TopicServiceImpl implements ITopicService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Topic> findById(Integer id) throws Exception {
-
-		return null;
+		return topicRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Topic> findAll() throws Exception {
-
-		return null;
+		return topicRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public Topic save(Topic t) throws Exception {
-
-		return null;
+		return topicRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		topicRepository.deleteById(id);
+	}
 
+	@Transactional()
+	@Override
+	public void deleteAll() throws Exception {
+		topicRepository.deleteAll();
 	}
 
 }

@@ -14,14 +14,14 @@ import com.mitutor.service.impl.UserDetailsServiceImpl;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/js/**", "/layer/**" };
+	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/js/**", "/layer/**", "/assets/**" };
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
 			.antMatchers(resources).permitAll()
-			.antMatchers("/", "/dataGeneration/**", "/person/**").permitAll()
+			.antMatchers("/", "/dataGeneration/**", "/person/**", "/account/**").permitAll()
 			//.antMatchers("/", "/index").permitAll()
 			//.antMatchers("/admin*").access("hasRole('TUTOR')")
 			//.antMatchers("/user*").access("hasRole('STUDENT') or hasRole('TUTOR')")
@@ -30,14 +30,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/login")
 				.permitAll()
-				.defaultSuccessUrl("/menu")
-				.failureUrl("/login?error=true")
+				.defaultSuccessUrl("/person")
+				.failureUrl("/account/login?error=true")
 				.usernameParameter("username")
 				.passwordParameter("password")
 				.and()
 			.logout()
 				.permitAll()
-				.logoutSuccessUrl("/login?logout");
+				.logoutSuccessUrl("/account/login?logout");
 	}
 	
 	BCryptPasswordEncoder bCryptPasswordEncoder;

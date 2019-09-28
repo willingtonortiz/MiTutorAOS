@@ -20,28 +20,31 @@ public class SubjectServiceImpl implements ISubjectService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Subject> findById(Integer id) throws Exception {
-
-		return null;
+		return subjectRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Subject> findAll() throws Exception {
-
-		return null;
+		return subjectRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public Subject save(Subject t) throws Exception {
-
-		return null;
+		return subjectRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		subjectRepository.deleteById(id);
+	}
 
+	@Transactional()
+	@Override
+	public void deleteAll() throws Exception {
+		subjectRepository.deleteAll();
 	}
 
 }
