@@ -50,6 +50,15 @@ public class Tutor implements Serializable {
 	@OneToOne(mappedBy = "tutor", cascade = CascadeType.ALL)
 	private Availability availability;
 
+	public Tutor() {
+
+	}
+
+	public Tutor(Integer points, String description) {
+		this.points = points;
+		this.description = description;
+	}
+
 	public Integer getId() {
 		return id;
 	}

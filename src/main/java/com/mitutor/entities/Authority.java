@@ -10,16 +10,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "authority")
 public class Authority implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column
+	@Column(name = "authority")
 	private String authority;
+
+	public Authority() {
+
+	}
+
+	public Authority(String authority) {
+		this.authority = authority;
+	}
 
 	public String getAuthority() {
 		return authority;

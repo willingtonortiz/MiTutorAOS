@@ -20,26 +20,30 @@ public class UserServiceImpl implements IUserService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<User> findById(Integer id) throws Exception {
-
-		return null;
+		return userRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<User> findAll() throws Exception {
-
-		return null;
+		return userRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public User save(User user) throws Exception {
-		return null;
+		return userRepository.save(user);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		userRepository.deleteById(id);
+	}
+
+	@Override
+	public void deleteAll() {
+		userRepository.deleteAll();
 	}
 
 }

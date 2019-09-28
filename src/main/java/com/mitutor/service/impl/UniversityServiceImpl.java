@@ -20,28 +20,35 @@ public class UniversityServiceImpl implements IUniversityService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<University> findById(Integer id) throws Exception {
-
-		return null;
+		return universityRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<University> findAll() throws Exception {
-
-		return null;
+		return universityRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public University save(University t) throws Exception {
-
-		return null;
+		return universityRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		universityRepository.deleteById(id);
+	}
 
+	@Override
+	public Optional<University> findByName(String name) {
+		return universityRepository.findByName(name);
+	}
+
+	@Override
+	public void deleteAll() {
+		universityRepository.deleteAll();
 	}
 
 }

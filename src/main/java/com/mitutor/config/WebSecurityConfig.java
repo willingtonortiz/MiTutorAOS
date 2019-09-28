@@ -21,9 +21,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 			.antMatchers(resources).permitAll()
-			.antMatchers("/", "/index").permitAll()
-			.antMatchers("/admin*").access("hasRole('TUTOR')")
-			.antMatchers("/user*").access("hasRole('STUDENT') or hasRole('TUTOR')")
+			.antMatchers("/landing/**", "/dataGeneration/**").permitAll()
+			//.antMatchers("/", "/index").permitAll()
+			//.antMatchers("/admin*").access("hasRole('TUTOR')")
+			//.antMatchers("/user*").access("hasRole('STUDENT') or hasRole('TUTOR')")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()

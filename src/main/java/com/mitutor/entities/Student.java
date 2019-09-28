@@ -39,6 +39,14 @@ public class Student implements Serializable {
 	@MapsId
 	private Person person;
 
+	public Student() {
+
+	}
+
+	public Student(Integer points) {
+		this.points = points;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -62,14 +70,14 @@ public class Student implements Serializable {
 	public void setSubjects(List<Subject> subjects) {
 		this.subjects = subjects;
 	}
-//
-//	public List<TutoringSession> getTutoringSessions() {
-//		return tutoringSessions;
-//	}
-//
-//	public void setTutoringSessions(List<TutoringSession> tutoringSessions) {
-//		this.tutoringSessions = tutoringSessions;
-//	}
+
+	public List<TutoringSession> getTutoringSessions() {
+		return tutoringSessions;
+	}
+
+	public void setTutoringSessions(List<TutoringSession> tutoringSessions) {
+		this.tutoringSessions = tutoringSessions;
+	}
 
 	public Person getPerson() {
 		return person;

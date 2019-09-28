@@ -20,28 +20,30 @@ public class StudentServiceImpl implements IStudentService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Student> findById(Integer id) throws Exception {
-
-		return null;
+		return studentRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Student> findAll() throws Exception {
-
-		return null;
+		return studentRepository.findAll();
 	}
 
 	@Transactional()
 	@Override
 	public Student save(Student t) throws Exception {
-
-		return null;
+		return studentRepository.save(t);
 	}
 
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		studentRepository.deleteById(id);
+	}
 
+	@Override
+	public void deleteAll() {
+		studentRepository.deleteAll();
 	}
 
 }
