@@ -44,7 +44,7 @@ public class Topic implements Serializable {
 	}
 
 	public Topic(String name) {
-
+      this.name=name;
 	}
 
 	public Integer getId() {

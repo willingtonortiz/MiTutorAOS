@@ -20,6 +20,7 @@ public class TutorServiceImpl implements ITutorService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Tutor> findById(Integer id) throws Exception {
+
 		return tutorRepository.findById(id);
 	}
 
@@ -32,6 +33,7 @@ public class TutorServiceImpl implements ITutorService {
 	@Transactional()
 	@Override
 	public Tutor save(Tutor t) throws Exception {
+
 		return tutorRepository.save(t);
 	}
 

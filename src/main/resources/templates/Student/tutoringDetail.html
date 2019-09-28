@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8" />
+
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+            <img th:src= "@{/assets/Logo.svg}" />
+        </div>
+ 
+
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="¿Buscas algún curso?" name="curso-find" />
+            </form>
+        </div>
+        <div class="avatar-profile">
+            <h2 class="avatar-title">Jair Huaman</h2>
+            <!-- cuando el estudiante es estudiante -->
+            <!-- <p class="avatar-rol">Estudiante</p> -->
+
+            <!-- cuando el estudiante es tutor -->
+            <p class="avatar-rol">Tutor</p>
+        </div>
+	</header>
+	
+	
+	 <div class="container-tutoria-details">
+        <div class="details">
+
+			<h2 th:text="${_tutoringSession.tutoringSession.subject.name}"></h2>
+
+
+		<div class="detail">
+		 <p class="label-detail">Ubicacion</p>
+              <p class="text-detail" th:text="${_tutoringSession.tutoringSession.place}"></p>		
+		</div>
+		
+        <div class="detail">
+              <p class="label-detail">Fecha</p>
+              <p class="text-detail" th:text="${_tutoringSession.tutoringSession.day}"></p>
+        </div>
+        
+        <div class="detail">
+              <p class="label-detail">Inicio</p>
+              <p class="text-detail" th:text="${_tutoringSession.tutoringSession.startTime}"></p>
+        </div>
+        
+         <div class="detail">
+              <p class="label-detail">Fin</p>
+              <p class="text-detail" th:text="${_tutoringSession.tutoringSession.endTime}"></p>
+        </div>
+			
+		<div class="detail">
+              <p class="label-detail">Capacidad</p>
+              <p class="text-detail" th:text="${_tutoringSession.confirmedStudents}+'/'+${_tutoringSession.tutoringSession.capacity}"></p>
+        </div>
+        
+         <div class="detail">
+              <p class="label-detail">Descripcion</p>
+              <p class="text-detail" th:text="${_tutoringSession.tutoringSession.description}"></p>
+        </div>
+        
+        
+        <form th:action="@{/students/tutoringSessionDetailsConfirmed}" th:object="${_tutoringSession}"  method="post">
+        	<div class="field">		 
+        		<input type="hidden" th:field="*{studentId}" class="form-control">
+        		<input type="hidden" th:field="*{confirmed}" class="form-control">
+        		<input type="hidden" th:field="*{tutoringSession}" class="form-control">
+        		
+        		<div th:class="${_tutoringSession.confirmed} ? events-afterReserved: submit-reserva " >
+        		
+ 	        	<input type="submit" ></input >
+ 	        	</div>  	
+ 	        	
+ 	   		 </div>
+        </form>
+		
+		
+		
+		
+		
+		</div>
+	 </div>
+	
+	
+<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+
+
+
+</html>

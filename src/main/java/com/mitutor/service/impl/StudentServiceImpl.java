@@ -20,6 +20,7 @@ public class StudentServiceImpl implements IStudentService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Student> findById(Integer id) throws Exception {
+
 		return studentRepository.findById(id);
 	}
 

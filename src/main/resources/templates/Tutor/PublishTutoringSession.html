@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8" />
+
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+            <img th:src= "@{/assets/Logo.svg}" />
+        </div>
+ 
+
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="¿Buscas algún curso?" name="curso-find" />
+            </form>
+        </div>
+        <div class="avatar-profile">
+            <h2 class="avatar-title">Jair Huaman</h2>
+            <!-- cuando el estudiante es estudiante -->
+            <!-- <p class="avatar-rol">Estudiante</p> -->
+
+            <!-- cuando el estudiante es tutor -->
+            <p class="avatar-rol">Tutor</p>
+        </div>
+	</header>
+	
+	
+	  <div class="container-nuevatutoria">
+        <div class="form-container">
+	
+		<form th:action="@{/tutors/publishTutoringSessionInputConfirmed}" th:object="${tutoringSession}"  method="post">
+		
+	
+		<div class="field">
+		<label>Curso</label>
+		<select th:field="*{subjectId}" required="required" name="subject" id="subject" >
+			<option value="0">Seleccionar curso</option>
+			 <option th:each="var:${allSubjects}"  
+                  th:value="${var.id}" 
+                  th:text="${var.name}" ></option>
+        </select>
+		</div>
+		
+		
+		<div class="field">
+		<label>Tema</label>
+		<select th:field="*{topicId}"  multiple="multiple" name="topic" id="topic">
+        </select>
+		</div>
+		
+	
+		<div class="field">
+			  <label>Lugar</label>
+			<input id="place" type="text" th:field="*{place}" class="form-control" name="Lugar">
+		</div>
+		
+	
+        <div class="field">
+              <label>Fecha</label>
+              <input id="date" type="text"  th:field="*{dayString}"  name="Date"  class="form-control">
+        </div>
+        
+        <div class="field">
+              <label>Inicio</label>
+              <input id="start_time" type="time"  th:field="*{startTime}"  name="StartTime"  class="form-control">
+        </div>
+        
+        <div class="field">
+              <label>Fin</label>
+              <input id="end_time" type="time"  th:field="*{endTime}"  name="EndTime"  class="form-control">
+        </div>
+			
+		<div class="field">
+             <label>Participantes maximos</label>
+             <input id="capacity" type="number" th:field="*{capacity}" class="form-control" name="Capacity">
+        </div>
+        
+         <div class="field">
+               <label for="">Descripcion</label>
+               <textarea name="Description" id="" cols="30" rows="10" th:field="*{description}" class="form-control" ></textarea>
+         </div>
+		
+	
+		<div class="field">
+ 	        <button type="submit">Publicar</button>
+ 	    </div>
+    
+		</form>
+		
+		</div>
+	 </div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+
+
+
+<script type="text/javascript" th:inline="javascript" >
+
+$("#subject").change(
+		function(){
+	    var subjectId = $(this).val();
+	    $.ajax({
+	        url: "/tutors/getTopics?subjectId=" + subjectId,
+	        method : 'GET',
+	        success: function(data){
+	        	 var html = '<option value="0">Seleccione los temas</option>';
+	                var len = data.length;
+	                for ( var i = 0; i < len; i++) {
+	                    html += '<option value="' + data[i].id + '">'
+	                            + data[i].name + '</option>';
+	                }
+	
+	                $('#topic').html(html);
+	        },
+	        error:function(){
+	            alert("error");
+	        }
+
+	    });
+	});
+
+
+
+</script>
+
+
+</html>

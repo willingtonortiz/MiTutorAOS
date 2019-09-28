@@ -73,8 +73,10 @@ public class TutoringSession implements Serializable {
 	@JoinTable(name = "tutoring_session_student", joinColumns = @JoinColumn(name = "tutoring_session_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
 	private List<Student> students = new ArrayList<Student>();
 
+	
 	@OneToMany(mappedBy = "tutoringSession")
 	private List<Qualification> qualifications;
+
 
 	public Integer getId() {
 		return id;
@@ -88,53 +90,66 @@ public class TutoringSession implements Serializable {
 		return place;
 	}
 
+
 	public void setPlace(String place) {
 		this.place = place;
 	}
+
 
 	public String getDay() {
 		return day;
 	}
 
+
 	public void setDay(String day) {
 		this.day = day;
 	}
+
 
 	public Date getStartTime() {
 		return startTime;
 	}
 
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
+
 
 	public Date getEndTime() {
 		return endTime;
 	}
 
+
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
+
 
 	public Integer getCapacity() {
 		return capacity;
 	}
 
+
 	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
+
 
 	public String getDescription() {
 		return description;
 	}
 
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+
 	public Tutor getTutor() {
 		return tutor;
 	}
+
 
 	public void setTutor(Tutor tutor) {
 		this.tutor = tutor;
@@ -144,40 +159,50 @@ public class TutoringSession implements Serializable {
 		return subject;
 	}
 
+
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
+
 
 	public List<Topic> getTopics() {
 		return topics;
 	}
 
+
 	public void setTopics(List<Topic> topics) {
 		this.topics = topics;
 	}
+
 
 	public TutoringOffer getTutoringOffer() {
 		return tutoringOffer;
 	}
 
+
 	public void setTutoringOffer(TutoringOffer tutoringOffer) {
 		this.tutoringOffer = tutoringOffer;
 	}
+
 
 	public List<Student> getStudents() {
 		return students;
 	}
 
+
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+
 
 	public List<Qualification> getQualifications() {
 		return qualifications;
 	}
 
+
 	public void setQualifications(List<Qualification> qualifications) {
 		this.qualifications = qualifications;
 	}
+	
 
 }

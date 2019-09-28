@@ -100,12 +100,15 @@ public class Subject implements Serializable {
 		this.tutoringOffers = tutoringOffers;
 	}
 
-//	public TutoringSession getTutoringSessions() {
-//		return tutoringSessions;
-//	}
-//
-//	public void setTutoringSessions(TutoringSession tutoringSessions) {
-//		this.tutoringSessions = tutoringSessions;
-//	}
+	public List<TutoringOffer> getTutoringSessions() {
+		return tutoringSessions;
+	}
+
+	public void setTutoringSessions(List<TutoringOffer> tutoringSessions) {
+		this.tutoringSessions = tutoringSessions;
+	}
+
+	
+	
 
 }

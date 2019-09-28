@@ -20,6 +20,7 @@ public class TutoringSessionServiceImpl implements ITutoringSessionService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<TutoringSession> findById(Integer id) throws Exception {
+
 		return tutoringSessionRepository.findById(id);
 	}
 
@@ -32,6 +33,7 @@ public class TutoringSessionServiceImpl implements ITutoringSessionService {
 	@Transactional()
 	@Override
 	public TutoringSession save(TutoringSession t) throws Exception {
+
 		return tutoringSessionRepository.save(t);
 	}
 
