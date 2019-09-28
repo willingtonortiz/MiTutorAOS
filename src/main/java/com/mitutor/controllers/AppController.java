@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class AppController {
 
-	@GetMapping({ "/", "/login" })
-	public String index() {
-		return "index";
-	}
+
 
 	@GetMapping("/menu")
 	public String menu() {

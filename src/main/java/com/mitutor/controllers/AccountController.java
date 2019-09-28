@@ -30,7 +30,7 @@ import com.mitutor.util.Passgenerator;
 import com.mitutor.viewModels.UserMaster;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/account")
 public class AccountController{
 	
 	
@@ -45,6 +45,13 @@ public class AccountController{
 	@Autowired
 	private IUserService userService;
 	
+	
+	@GetMapping("/login")
+	public String index() {
+		return "/account/login";
+	}
+	
+	
 	@GetMapping("/register")
 	public String register(Model model) {
 		try {
@@ -54,7 +61,7 @@ public class AccountController{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "/register";
+		return "/account/register";
 
 
 	}
@@ -113,7 +120,7 @@ public class AccountController{
  
         
 
-        return new RedirectView("/login");
+        return new RedirectView("/account/login");
     }
 
 }

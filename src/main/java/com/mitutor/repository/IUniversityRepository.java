@@ -9,5 +9,9 @@ import com.mitutor.entities.University;
 
 @Repository
 public interface IUniversityRepository extends JpaRepository<University, Integer> {
+
 	public Optional<University> findById(Integer id);
+
+	Optional<University> findByName(String name);
+
 }

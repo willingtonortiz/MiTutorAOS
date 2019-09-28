@@ -29,6 +29,13 @@ public class University implements Serializable {
 	@OneToMany(mappedBy = "university")
 	private List<Person> persons = new ArrayList<>();
 
+	public University() {
+	}
+
+	public University(String name) {
+		this.name = name;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

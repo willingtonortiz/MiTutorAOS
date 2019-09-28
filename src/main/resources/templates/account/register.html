@@ -16,20 +16,20 @@
 </head>
 <body>
 
-	<form th:action="@{/register}" method="POST" modelAttribute="userMaster">
+	<form th:action="@{/account/register}" method="POST" modelAttribute="userMaster">
 		<input type="text" name="lastname" placeholder="lastname">
 		<input type="text" name="name" placeholder="name">
 		<input type="text" name="semester" placeholder="semester">
 		<select name="university_id">
-		<div th:each="universidad:${listadoUniversidad}">
-			<option th:value="${universidad.id}" th:text="${universidad.name}"></option>
+		<div th:each="university:${listadoUniversidad}">
+			<option th:value="${university.id}" th:text="${university.name}"></option>
 			
 		</div>
 		</select>
 	
 		<input type="text" name="email" placeholder="email">
 		<input type="text" name="username" placeholder="username">
-		<input type="text" name="password" placeholder="password">
+		<input type="password" name="password" placeholder="password">
 		<input type="submit" value="Registrar"/>
 	</form>
 </body>

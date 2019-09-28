@@ -1,6 +1,7 @@
 package com.mitutor.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -43,7 +44,22 @@ public class User implements Serializable {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "authorities_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
-	private Set<Authority> authority;
+	private Set<Authority> authorities = new HashSet<>();
+
+	public User() {
+
+	}
+
+	public User(String username, String password, String email, boolean enabled) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.enabled = enabled;
+	}
+
+	public void addAuthority(Authority authority) {
+		authorities.add(authority);
+	}
 
 	public Integer getId() {
 		return id;
@@ -93,12 +109,12 @@ public class User implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Set<Authority> getAuthority() {
-		return authority;
+	public Set<Authority> getAuthorities() {
+		return authorities;
 	}
 
-	public void setAuthority(Set<Authority> authority) {
-		this.authority = authority;
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 }

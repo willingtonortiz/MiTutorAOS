@@ -37,7 +37,7 @@ public class Person implements Serializable {
 	private Integer semester;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "university_id")
+	@JoinColumn(name = "university_id", nullable = true)
 	private University university;
 
 	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
@@ -55,6 +55,16 @@ public class Person implements Serializable {
 	@OneToMany(mappedBy = "adresser")
 	private List<Qualification> givenQualifications;
 
+	public Person() {
+		
+	}
+
+	public Person(String name, String lastname, Integer semester) {
+		this.name = name;
+		this.lastName = lastname;
+		this.semester = semester;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

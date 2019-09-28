@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		List grantList = new ArrayList<>();
 
-		for (Authority authority : appUser.getAuthority()) {
+		for (Authority authority : appUser.getAuthorities()) {
 			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getAuthority());
 			grantList.add(grantedAuthority);
 		}

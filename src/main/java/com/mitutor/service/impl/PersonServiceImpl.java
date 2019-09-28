@@ -20,13 +20,13 @@ public class PersonServiceImpl implements IPersonService {
 	@Transactional(readOnly = true)
 	@Override
 	public Optional<Person> findById(Integer id) throws Exception {
-		return null;
+		return personRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<Person> findAll() throws Exception {
-		return null;
+		return personRepository.findAll();
 	}
 
 	@Transactional()
@@ -39,7 +39,12 @@ public class PersonServiceImpl implements IPersonService {
 	@Transactional()
 	@Override
 	public void deleteById(Integer id) throws Exception {
+		personRepository.deleteById(id);
+	}
 
+	@Override
+	public void deleteAll() {
+		personRepository.deleteAll();
 	}
 
 }
